@@ -1,1 +1,6 @@
-To run optional practice 1 from WebDriver module use comand line: mvn -Dbrowser=chrome -Dtest=PasteCreationTests -Denv=qa clean test
+## Running Optional Practice 1 from WebDriver Module
+
+To execute the Optional Practice 1 tests in the WebDriver module, you can use the following Maven command in the command line:
+
+```bash
+mvn -Dbrowser=chrome -Dtest=PasteCreationTests -Denv=qa clean test
