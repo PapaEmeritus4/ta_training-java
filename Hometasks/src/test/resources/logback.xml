@@ -8,13 +8,13 @@
     </appender>
 
     <appender name="File" class="ch.qos.logback.core.FileAppender">
-        <file>target/logs/github-automation.log</file>
+        <file>target/logs/logs.log</file>
         <encoder>
             <pattern>%d %p %c{2} [%t] %m%n</pattern>
         </encoder>
     </appender>
 
-    <root level="trace">
+    <root level="info">
         <appender-ref ref="Console" />
         <appender-ref ref="File" />
     </root>

@@ -9,6 +9,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
+import java.util.Objects;
 
 public class DriverSingleton {
 
@@ -19,31 +20,37 @@ public class DriverSingleton {
     }
 
     public static WebDriver getDriver() {
-        if (null == driver) {
-            switch (System.getProperty("browser")) {
+        if (Objects.isNull(driver)) {
+            switch (System.getProperty("browser", "chrome")) {
                 case "chrome": {
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
+                    break;
                 }
                 case "firefox": {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
+                    break;
                 }
                 case "edge": {
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
+                    break;
                 }
                 case "chromium": {
                     WebDriverManager.chromiumdriver().setup();
                     driver = new ChromeDriver();
+                    break;
                 }
                 case "safari": {
                     WebDriverManager.safaridriver().setup();
                     driver = new SafariDriver();
+                    break;
                 }
                 case "ie": {
                     WebDriverManager.iedriver().setup();
                     driver = new InternetExplorerDriver();
+                    break;
                 }
             }
             //if we need implicitly waits
@@ -54,7 +61,9 @@ public class DriverSingleton {
     }
 
     public static void closeDriver() {
-        driver.quit();
-        driver.close();
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
     }
 }
