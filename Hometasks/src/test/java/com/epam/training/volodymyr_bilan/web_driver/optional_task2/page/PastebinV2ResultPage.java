@@ -1,11 +1,12 @@
 package com.epam.training.volodymyr_bilan.web_driver.optional_task2.page;
 
 import com.epam.training.volodymyr_bilan.infrastructure.page.AbstractPage;
-import com.epam.training.volodymyr_bilan.infrastructure.util.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import static com.epam.training.volodymyr_bilan.infrastructure.util.WaitUtils.*;
 
 public class PastebinV2ResultPage extends AbstractPage {
 
@@ -24,17 +25,14 @@ public class PastebinV2ResultPage extends AbstractPage {
     }
 
     public String getPageTitleText() {
-        return WaitUtils.waitForVisibility(driver, pasteTitle)
-                .getText();
+        return waitForVisibility(pasteTitle).getText();
     }
 
     public String getSelectedSyntax() {
-        return WaitUtils.waitForVisibility(driver, selectedSyntaxField)
-                .getText();
+        return waitForVisibility(selectedSyntaxField).getText();
     }
 
     public String getPasteCode() {
-        return WaitUtils.waitForVisibility(driver, pasteCodeField)
-                .getText();
+        return waitForVisibility(pasteCodeField).getText();
     }
 }

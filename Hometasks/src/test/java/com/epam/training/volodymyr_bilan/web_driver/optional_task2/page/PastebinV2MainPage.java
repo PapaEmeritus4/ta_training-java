@@ -1,7 +1,6 @@
 package com.epam.training.volodymyr_bilan.web_driver.optional_task2.page;
 
 import com.epam.training.volodymyr_bilan.infrastructure.page.AbstractPage;
-import com.epam.training.volodymyr_bilan.infrastructure.util.WaitUtils;
 import com.epam.training.volodymyr_bilan.web_driver.optional_task2.model.PasteV2;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
@@ -59,13 +58,13 @@ public class PastebinV2MainPage extends AbstractPage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", syntaxSelectBox);
         syntaxSelectBox.click();
-        waitForElementAndClick(driver, By.xpath("//li[text()='" + syntax + "']"));
+        waitForVisibility(By.xpath("//li[text()='" + syntax + "']")).click();
         return this;
     }
 
     public PastebinV2MainPage selectExpiration(String expiration) {
         expirationSelectBox.click();
-        waitForElementAndClick(driver, By.xpath("//li[text()='" + expiration + "']"));
+        waitForVisibility(By.xpath("//li[text()='" + expiration + "']")).click();
         return this;
     }
 
