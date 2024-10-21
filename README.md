@@ -12,3 +12,9 @@ To execute the Optional Practice 2 tests in the WebDriver module, you can use th
 ```bash
 mvn -Dbrowser=chrome -Dtest=PasteV2CreationTests -Denv=qa clean test
 ```
+### Practice 3: Google Cloud Calculator
+To execute the Optional Practice 3 tests in the WebDriver module, you can use the following Maven command in the command line:
+
+```bash
+mvn -Dbrowser=chrome -Dtest=GoogleCloudPricingCalculatorTest -Denv=qa clean test
+```
