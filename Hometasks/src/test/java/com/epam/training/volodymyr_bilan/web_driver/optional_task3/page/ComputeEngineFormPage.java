@@ -20,7 +20,7 @@ public class ComputeEngineFormPage extends AbstractPage {
 
     private final String SELECT_BOX_OPTION_LOCATOR = "//li[@data-value='%s']";
     private final String PROVISIONING_MODEL_LOCATOR = "//label[text()='%s']";
-    private final By ESTIMATED_COST_LOCATOR = By.xpath("//div[text()='Estimated cost']/following::label");
+    private final By SERVICE_COST_UPDATED_LOCATOR = By.xpath("//div[@class='egBpsb']/following-sibling::div[text()='Service cost updated']");
 
     @FindBy(xpath = "//input[@value='1']")
     private WebElement numberOfInstances;
@@ -78,7 +78,7 @@ public class ComputeEngineFormPage extends AbstractPage {
                 .selectNumberOfGpus(computeEngine.getNumberOfGpus())
                 .selectLocalSsd(computeEngine.getLocalSsd())
                 .selectRegion(computeEngine.getRegion());
-        waitForTextChange(ESTIMATED_COST_LOCATOR, estimatedCost.getText());
+        waitForVisibility(SERVICE_COST_UPDATED_LOCATOR);
         log.info("Form was filled.");
         return this;
     }

@@ -31,9 +31,4 @@ public class WaitUtils {
         WebDriverWait wait = new WebDriverWait(DRIVER, Duration.ofSeconds(DEFAULT_TIMEOUT));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
-
-    public static void waitForTextChange(By locator, String initialText) {
-        WebDriverWait wait = new WebDriverWait(DRIVER, Duration.ofSeconds(DEFAULT_TIMEOUT));
-        wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(locator, initialText)));
-    }
 }
