@@ -26,7 +26,7 @@ To execute the standard tests, use the following command:
 ```bash
 mvn -Dbrowser=chrome -Dtest=SwagLabsLoginTest -Denv=qa clean test
 ```
-To execute the Cucumber tests, use the following command:
+To execute the BDD tests, use the following command:
 ```bash
 mvn -Dbrowser=chrome -Dtest=SwagLabsCucumberTestRunner -Denv=qa clean test
 ```
