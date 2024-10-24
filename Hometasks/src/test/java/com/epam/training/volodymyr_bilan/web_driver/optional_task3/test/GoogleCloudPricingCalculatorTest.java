@@ -7,13 +7,13 @@ import com.epam.training.volodymyr_bilan.web_driver.optional_task3.page.Estimate
 import com.epam.training.volodymyr_bilan.web_driver.optional_task3.page.GoogleCloudPricingCalculatorMainPage;
 import com.epam.training.volodymyr_bilan.web_driver.optional_task3.service.ComputeEngineCreator;
 import org.assertj.core.api.SoftAssertions;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.testng.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GoogleCloudPricingCalculatorTest extends BaseTest {
 
-    @Test(description = "JIRA-040301") //first two numbers = number of module, second two = number of task, last = number of test
+    @Test
     public void testComputeEngineEstimation() {
         ComputeEngine computeEngine = ComputeEngineCreator.getComputeEngineFromProperty();
         String expectedCost = new GoogleCloudPricingCalculatorMainPage(driver)
@@ -41,7 +41,6 @@ public class GoogleCloudPricingCalculatorTest extends BaseTest {
         String actualRegion = computeEngine.getRegion();
 
         SoftAssertions softAssertions = new SoftAssertions();
-
         softAssertions.assertThat(estimateSummary.getNumberOfInstances()).contains(actualNumberOfInstances);
         softAssertions.assertThat(estimateSummary.getOperatingSystem()).contains(actualOperatingSystem);
         softAssertions.assertThat(estimateSummary.getProvisioningModel()).contains(actualProvisioningModel);

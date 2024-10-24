@@ -5,15 +5,21 @@ import com.epam.training.volodymyr_bilan.final_task.page.SwagLabsLoginPage;
 import com.epam.training.volodymyr_bilan.final_task.service.LoginDataCreator;
 import com.epam.training.volodymyr_bilan.infrastructure.test.BaseTest;
 import lombok.extern.slf4j.Slf4j;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.testng.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 @Slf4j
+@Execution(ExecutionMode.CONCURRENT)
 public class SwagLabsLoginTest extends BaseTest {
 
-    @Test(dataProvider = "loginDataProvider")
+    @ParameterizedTest
+    @MethodSource("loginDataProvider")
     public void testLoginForm(LoginData loginData) {
         log.info("Starting login test with username: {}, password: {}", loginData.getUsername(), loginData.getPassword());
         SwagLabsLoginPage loginPage = new SwagLabsLoginPage(driver)
@@ -34,8 +40,7 @@ public class SwagLabsLoginTest extends BaseTest {
         log.info("Login test passed for username: {}, password: {}", loginData.getUsername(), loginData.getPassword());
     }
 
-    @DataProvider(name = "loginDataProvider")
-    public Object[][] loginDataProvider() {
+    static Object[][] loginDataProvider() {
         return new Object[][]{
                 {LoginDataCreator.getLoginDataForUC1()},
                 {LoginDataCreator.getLoginDataForUC2()},

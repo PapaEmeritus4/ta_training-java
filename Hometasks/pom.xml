@@ -16,7 +16,8 @@
     <maven-plugin.version>3.5.1</maven-plugin.version>
     <selenium-java.version>4.25.0</selenium-java.version>
     <webdrivermanager.version>5.9.2</webdrivermanager.version>
-    <testng.version>7.10.2</testng.version>
+    <junit.version>5.11.0</junit.version>
+    <junit-suite.version>1.11.0</junit-suite.version>
     <hamcrest.version>3.0</hamcrest.version>
     <assertj.version>3.25.3</assertj.version>
     <commons-io.version>2.17.0</commons-io.version>
@@ -40,9 +41,30 @@
     </dependency>
 
     <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>${testng.version}</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite</artifactId>
+      <version>${junit-suite.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -105,6 +127,14 @@
       <version>${cucumber.version}</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit-platform-engine</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -113,6 +143,13 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-plugin.version}</version>
+        <configuration>
+          <properties>
+            <configurationParameters>
+              cucumber.junit-platform.naming-strategy=long
+            </configurationParameters>
+          </properties>
+        </configuration>
       </plugin>
 
       <plugin>
