@@ -1,5 +1,15 @@
 # Swag Labs Login Test Automation
 This project contains automated tests for the login functionality of the [Swag Labs](https://www.saucedemo.com/) application. The tests cover various user cases to ensure the robustness of the login form.
+## Running Tests
+### Maven Command for Regular Tests
+To execute the standard tests, use the following command:
+```bash
+mvn -Dbrowser=chrome -Dtest=SwagLabsLoginTest -Denv=qa clean test
+```
+To execute the BDD tests, use the following command:
+```bash
+mvn -Dbrowser=chrome -Dtest=SwagLabsCucumberTestRunner -Denv=qa clean test
+```
 ## Task Description
 ### User Cases
 - **UC-1**: Test Login form with empty credentials
@@ -19,17 +29,6 @@ This project contains automated tests for the login functionality of the [Swag L
   - Type valid credentials in the username field (e.g., "standard_user").
   - Enter the password "secret_sauce".
   - Click on "Login" and validate the title “Swag Labs” in the dashboard.
-
-## Running Tests
-### Maven Command for Regular Tests
-To execute the standard tests, use the following command:
-```bash
-mvn -Dbrowser=chrome -Dtest=SwagLabsLoginTest -Denv=qa clean test
-```
-To execute the BDD tests, use the following command:
-```bash
-mvn -Dbrowser=chrome -Dtest=SwagLabsCucumberTestRunner -Denv=qa clean test
-```
 
 ### Test Features
 - **Parallel Execution**: Tests can be executed in parallel to speed up the testing process.
