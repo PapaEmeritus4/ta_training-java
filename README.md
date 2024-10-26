@@ -4,11 +4,11 @@ This project contains automated tests for the login functionality of the [Swag L
 ### Maven Command for Regular Tests
 To execute the standard tests, use the following command:
 ```bash
-mvn -Dbrowser=chrome -Dtest=SwagLabsLoginTest -Denv=qa clean test
+mvn -Dbrowser=edge -Dtest=SwagLabsLoginTest -Denv=qa clean test
 ```
 To execute the BDD tests, use the following command:
 ```bash
-mvn -Dbrowser=chrome -Dtest=SwagLabsCucumberTestRunner -Denv=qa clean test
+mvn -Dbrowser=edge -Dtest=SwagLabsCucumberTestRunner -Denv=qa clean test
 ```
 ## Task Description
 ### User Cases
