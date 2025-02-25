@@ -11,12 +11,12 @@ public class CalculatorTest {
 
     private Calculator calculator;
 
-    @BeforeEach
+    @BeforeAll
     void setup() {
         calculator = new Calculator();
     }
 
-    @AfterEach
+    @AfterAll
     void tearDown() {
         calculator = null;
     }
