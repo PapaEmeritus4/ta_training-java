@@ -2,9 +2,7 @@ package com.epam.training.volodymyr_bilan.gmail.test;
 
 import com.epam.training.volodymyr_bilan.gmail.model.LoginData;
 import com.epam.training.volodymyr_bilan.gmail.model.MessageData;
-import com.epam.training.volodymyr_bilan.gmail.page.GmailDraftsPage;
 import com.epam.training.volodymyr_bilan.gmail.page.GmailLoginPage;
-import com.epam.training.volodymyr_bilan.gmail.page.GmailMainPage;
 import com.epam.training.volodymyr_bilan.gmail.service.DataCreator;
 import com.epam.training.volodymyr_bilan.infrastructure.test.BaseTest;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +26,7 @@ public class GmailTest extends BaseTest {
     @Test(priority = 1)
     public void testSuccessfulGmailLoginFunctionality(){
         LoginData data = DataCreator.getLoginData();
-        String displayedEmail = new GmailLoginPage(driver)
+        var displayedEmail = new GmailLoginPage(driver)
                 .openPage()
                 .enterEmail(data.getEmail())
                 .enterPassword(data.getPassword())
@@ -41,7 +39,7 @@ public class GmailTest extends BaseTest {
     public void testDraftGmailCompositionAndSavingFunctionality() {
         LoginData data = DataCreator.getLoginData();
         MessageData messageData = DataCreator.getMessageData();
-        GmailDraftsPage draftEmailPage  = new GmailLoginPage(driver)
+        var draftEmailPage  = new GmailLoginPage(driver)
                 .openPage()
                 .enterEmail(data.getEmail())
                 .enterPassword(data.getPassword())
@@ -64,7 +62,11 @@ public class GmailTest extends BaseTest {
 
     @Test(priority = 3)
     public void testGmailSendingFunctionality() {
-        var gmailPage  = new GmailMainPage(driver)
+        LoginData data = DataCreator.getLoginData();
+        var gmailPage  = new GmailLoginPage(driver)
+                .openPage()
+                .enterEmail(data.getEmail())
+                .enterPassword(data.getPassword())
                 .clickOnDraftFolder()
                 .openDraftEmail()
                 .sendDraftMessage();
