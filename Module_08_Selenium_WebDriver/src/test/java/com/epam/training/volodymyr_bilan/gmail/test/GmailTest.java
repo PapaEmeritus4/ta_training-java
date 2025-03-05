@@ -74,5 +74,6 @@ public class GmailTest extends BaseTest {
 
         var sendEmailsPage  = gmailPage.clickOnSentFolder();
         assertFalse(sendEmailsPage.isSendsEmpty());
+        log.info("Test completed successfully: Draft email sent and Sent folder is not empty.");
     }
 }
