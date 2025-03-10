@@ -1,7 +1,7 @@
 package com.epam.training.volodymyr_bilan.infrastructure.test;
 
+import com.epam.training.volodymyr_bilan.gmail.steps.GmailStepDefinition;
 import com.epam.training.volodymyr_bilan.infrastructure.driver.DriverSingleton;
-import com.epam.training.volodymyr_bilan.infrastructure.util.TestListener;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
@@ -11,10 +11,12 @@ import org.testng.annotations.*;
 public class BaseTest {
 
     protected WebDriver driver;
+    protected GmailStepDefinition gmailSteps;
 
     @BeforeClass
     public void setUp() {
         driver = DriverSingleton.getDriver();
+        gmailSteps = new GmailStepDefinition(driver);
         log.info("Driver instance created");
     }
 

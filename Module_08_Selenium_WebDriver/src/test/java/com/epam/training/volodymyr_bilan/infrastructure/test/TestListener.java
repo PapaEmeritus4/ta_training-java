@@ -1,4 +1,4 @@
-package com.epam.training.volodymyr_bilan.infrastructure.util;
+package com.epam.training.volodymyr_bilan.infrastructure.test;
 
 import com.epam.training.volodymyr_bilan.infrastructure.driver.DriverSingleton;
 import lombok.extern.slf4j.Slf4j;

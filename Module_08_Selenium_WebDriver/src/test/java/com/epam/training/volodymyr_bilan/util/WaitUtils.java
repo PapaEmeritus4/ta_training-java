@@ -1,4 +1,4 @@
-package com.epam.training.volodymyr_bilan.infrastructure.util;
+package com.epam.training.volodymyr_bilan.util;
 
 import com.epam.training.volodymyr_bilan.infrastructure.driver.DriverSingleton;
 import org.openqa.selenium.*;

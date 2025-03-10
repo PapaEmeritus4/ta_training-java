@@ -1,4 +1,4 @@
-package com.epam.training.volodymyr_bilan.infrastructure.util;
+package com.epam.training.volodymyr_bilan.infrastructure.test;
 
 import java.util.ResourceBundle;
 

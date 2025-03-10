@@ -2,7 +2,7 @@ package com.epam.training.volodymyr_bilan.gmail.service;
 
 import com.epam.training.volodymyr_bilan.gmail.model.LoginData;
 import com.epam.training.volodymyr_bilan.gmail.model.MessageData;
-import com.epam.training.volodymyr_bilan.infrastructure.util.TestDataReader;
+import com.epam.training.volodymyr_bilan.infrastructure.test.TestDataReader;
 
 public class DataCreator {
 

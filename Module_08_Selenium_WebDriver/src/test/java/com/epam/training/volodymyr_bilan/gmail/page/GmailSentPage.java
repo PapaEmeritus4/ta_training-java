@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.epam.training.volodymyr_bilan.infrastructure.util.WaitUtils.*;
+import static com.epam.training.volodymyr_bilan.util.WaitUtils.*;
 
 public class GmailSentPage extends AbstractPage {
 
