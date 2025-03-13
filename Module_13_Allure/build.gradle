@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.12.0'
+}
+
+group = 'com.epam.training.volodymyr_bilan'
+version = '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    javaVersion = 17
+    restAssuredVersion = '5.5.0'
+    testngVersion = '7.11.0'
+    seleniumVersion = '4.29.0'
+    webdrivermanagerVersion = '5.9.3'
+    hamcrestVersion = '3.0'
+    allureVersion = '2.29.0'
+    aspectJVersion = '1.9.22'
+    slf4jApiVersion = '2.0.16'
+    logbackVersion = '1.5.16'
+    lombokVersion = '1.18.36'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(javaVersion)
+    }
+}
+
+dependencies {
+    testImplementation "org.testng:testng:$testngVersion"
+    testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
+    testImplementation "org.seleniumhq.selenium:selenium-java:$seleniumVersion"
+    testImplementation "io.github.bonigarcia:webdrivermanager:$webdrivermanagerVersion"
+    testImplementation "org.hamcrest:hamcrest:$hamcrestVersion"
+
+    testImplementation "io.qameta.allure:allure-testng:$allureVersion"
+    testImplementation "io.qameta.allure:allure-java-commons:$allureVersion"
+    testImplementation "io.qameta.allure:allure-assertj:$allureVersion"
+    testImplementation "io.qameta.allure:allure-rest-assured:$allureVersion"
+    testImplementation "io.qameta.allure:allure-commandline:$allureVersion"
+    testImplementation "org.aspectj:aspectjweaver:$aspectJVersion"
+
+    testImplementation "org.slf4j:slf4j-api:$slf4jApiVersion"
+    testImplementation "ch.qos.logback:logback-classic:$logbackVersion"
+    testImplementation "ch.qos.logback:logback-core:$logbackVersion"
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+}
+
+test {
+    ignoreFailures = true
+    useTestNG()
+    systemProperty "browser", System.getProperty("browser", "chrome")
+    systemProperty "env", System.getProperty("env")
+}
