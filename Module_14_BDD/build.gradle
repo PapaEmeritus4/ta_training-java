@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.epam.training.volodymyr_bilan'
+version = '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    javaVersion = 17
+    testngVersion = '7.11.0'
+    seleniumVersion = '4.29.0'
+    webdrivermanagerVersion = '5.9.3'
+    hamcrestVersion = '3.0'
+    cucumberVersion = '7.20.1'
+    slf4jApiVersion = '2.0.16'
+    logbackVersion = '1.5.16'
+    lombokVersion = '1.18.36'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(javaVersion)
+    }
+}
+
+dependencies {
+    testImplementation "org.testng:testng:$testngVersion"
+    testImplementation "org.seleniumhq.selenium:selenium-java:$seleniumVersion"
+    testImplementation "io.github.bonigarcia:webdrivermanager:$webdrivermanagerVersion"
+    testImplementation "org.hamcrest:hamcrest:$hamcrestVersion"
+
+    testImplementation "io.cucumber:cucumber-java:$cucumberVersion"
+    testImplementation "io.cucumber:cucumber-testng:$cucumberVersion"
+
+    testImplementation "org.slf4j:slf4j-api:$slf4jApiVersion"
+    testImplementation "ch.qos.logback:logback-classic:$logbackVersion"
+    testImplementation "ch.qos.logback:logback-core:$logbackVersion"
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+}
+
+test {
+    ignoreFailures = true
+    useTestNG()
+    systemProperty "browser", System.getProperty("browser", "chrome")
+    systemProperty "env", System.getProperty("env")
+}
